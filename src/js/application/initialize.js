@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        jquery : '../vendor/jquery/jquery-1.10.2',
+        jquery : '../vendor/jquery/jquery-1.11.0',
         underscore : '../vendor/underscore/underscore',
         backbone : '../vendor/backbone/backbone',
         handlebars : '../vendor/handlebars/handlebars',
