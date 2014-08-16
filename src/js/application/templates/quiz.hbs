@@ -1,0 +1,16 @@
+<div class="background" style="background-color:<?php echo $_SESSION[$session_name]['bg_color']; ?>">
+	<div class="progress"></div>
+</div>
+<div style="color:{{ custom.fontColor }}" id="quiz-content">
+</div>
+<div class="footer">
+    <div id="page-counter">
+    </div>
+	<div class="logo-container">
+	    {{#if custom.logo}}
+	        <img src="{{ custom.logo }}" height="42">
+	    {{else}}
+            <a href="https://www.tryinteract.com" target="_blank"><img src="img/logo.png" height="43"></a>
+	    {{/if}}
+	</div>
+</div>

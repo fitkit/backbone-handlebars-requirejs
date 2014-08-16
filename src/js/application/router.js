@@ -1,18 +1,21 @@
 define([
     'backbone',
     'views/404',
-    'views/index'
+    'views/appView'
     ],
-    function (Backbone, error404View, indexView) {
-        "use strict";
+    function (Backbone, error404View, AppView) {
+        "use strict"
         var AppRouter = Backbone.Router.extend({
             routes: {
-                '' : 'index',
+                ':user/:id': 'quiz',
                 '*actions' : 'error404'
             },
-            index: function () {
-                indexView.render();
-
+            quiz: function (user, id) {
+                var appView = new AppView({
+                    user: user,
+                    id: id
+                });
+                appView.render();
             },
             error404: function () {
                 error404View.render();

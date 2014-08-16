@@ -1,4 +1,4 @@
 var connect = require('connect');
 connect.createServer(
-    connect.static('build')
+    connect.static('src')
 ).listen(3030);

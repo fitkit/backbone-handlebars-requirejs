@@ -2,7 +2,7 @@ define([
     'jquery',
     'handlebars',
     'backbone',
-    "text!templates/404.html"
+    "text!templates/404.hbs"
     ],
     function ($, Handlebars, Backbone, errorTemplate) {
         "use strict";
