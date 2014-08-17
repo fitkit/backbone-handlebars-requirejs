@@ -31,8 +31,35 @@ define([
                     "custom": {
                         "cover":"https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-bg-2WJu6XiqJ1t2sMU.jpg",
                         "button":"Start Now"
-
-                    }
+                        },
+                    "questions": [
+                        {
+                            "type": "image",
+                            "title": "Which player do you like more?",
+                            "options": [
+                                {
+                                    "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-ans-dRZj854JNjYupgM.jpg",
+                                    "text": "Gotze"
+                                },
+                                {
+                                    "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-ans-LyUtkREZoOjnh3m.jpg",
+                                    "text": "Messi"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "title": "Which team do you want to win?",
+                            "options": [
+                                {
+                                    "text": "Argentina"
+                                },
+                                {
+                                    "text": "Germany"
+                                }
+                            ]
+                        }
+                    ]
                 };
                 this.model.set(fakeData);
                 this.renderQuiz();
@@ -56,7 +83,7 @@ define([
                         });
                         break;
                     default:
-                        alert('Something went wrong');
+                        throw 'Invalid quiz type'
                 }
                 quizView.render();
             }
