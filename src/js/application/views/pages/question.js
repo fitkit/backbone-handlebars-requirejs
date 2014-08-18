@@ -8,6 +8,7 @@ define([
         "use strict";
         var QuestionView = Backbone.View.extend({
             tagName: 'div',
+            className: 'centered-container',
             parentDiv: '#quiz-content',
             events: {
              // ...

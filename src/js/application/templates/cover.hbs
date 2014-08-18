@@ -1,14 +1,12 @@
-<div class="cover">
-    <h1 class="quiz-title">{{ title }}</h1>
-    {{#if custom.cover}}
-        <div class="quiz-image" style="background-image:url({{ custom.cover }});"></div>
-    {{/if}}
-    {{#if description}}
-        <h2 class="quiz-subtitle">{{ description }}</h2>
-    {{/if}}
-    {{#if custom.button}}
-        <a class="start-quiz" role="button">{{ custom.button }}</a>
-    {{else}}
-        <a class="start-quiz" role="button">Take Quiz</a>
-    {{/if}}
-</div>
+<h1 class="quiz-title">{{ title }}</h1>
+{{#if custom.cover}}
+    <div class="quiz-image" style="background-image:url({{ custom.cover }});"></div>
+{{/if}}
+{{#if description}}
+    <h2 class="quiz-subtitle">{{ description }}</h2>
+{{/if}}
+{{#if custom.button}}
+    <a class="start-quiz" role="button">{{ custom.button }}</a>
+{{else}}
+    <a class="start-quiz" role="button">Take Quiz</a>
+{{/if}}

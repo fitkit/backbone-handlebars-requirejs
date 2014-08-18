@@ -1,18 +1,16 @@
-<div class="centered-container">
-	<h1 class="question-title">{{ title }}</h1>
-    {{#each options}}
-        <div class="one-third">
-            <div class="question-img-answer-container question-answer-container">
-                <div class="label-container">
-                    <span class="helper"></span>
-                    <input type="radio" id="option-{{ index }}" name="option" value="{{ index }}">
-                    <label class="answer-label" for="option-{{ index }}">
-                        {{ alphaIndex }}
-                    </label>
-                </div>
-                <div class="answer-img" style="background-image:url({{ img }});"></div>
-                <h2 class="question-img-answer">{{ text }}</h2>
+<h1 class="question-title">{{ title }}</h1>
+{{#each options}}
+    <div class="one-third">
+        <div class="question-img-answer-container question-answer-container">
+            <div class="label-container">
+                <span class="helper"></span>
+                <input type="radio" id="option-{{ index }}" name="option" value="{{ index }}">
+                <label class="answer-label" for="option-{{ index }}">
+                    {{ alphaIndex }}
+                </label>
             </div>
+            <div class="answer-img" style="background-image:url({{ img }});"></div>
+            <h2 class="question-img-answer">{{ text }}</h2>
         </div>
-    {{/each}}
-</div>
+    </div>
+{{/each}}

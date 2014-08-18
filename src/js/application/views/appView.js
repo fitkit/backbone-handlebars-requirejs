@@ -30,7 +30,9 @@ define([
                     'type': "personality",
                     "custom": {
                         "cover":"https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-bg-2WJu6XiqJ1t2sMU.jpg",
-                        "button":"Start Now"
+                        "button":"Start Now",
+                        "bgColor":"#ffffff",
+                        "fontColor":"#3d3d3d"
                         },
                     "questions": [
                         {
@@ -38,10 +40,14 @@ define([
                             "title": "Which player do you like more?",
                             "options": [
                                 {
+                                    "index": 0,
+                                    "alphaIndex": "A",
                                     "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-ans-dRZj854JNjYupgM.jpg",
                                     "text": "Gotze"
                                 },
                                 {
+                                    "index": 1,
+                                    "alphaIndex": "B",
                                     "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-ans-LyUtkREZoOjnh3m.jpg",
                                     "text": "Messi"
                                 }
@@ -52,9 +58,13 @@ define([
                             "title": "Which team do you want to win?",
                             "options": [
                                 {
+                                    "index": 0,
+                                    "alphaIndex": "A",
                                     "text": "Argentina"
                                 },
                                 {
+                                    "index": 1,
+                                    "alphaIndex": "B",
                                     "text": "Germany"
                                 }
                             ]

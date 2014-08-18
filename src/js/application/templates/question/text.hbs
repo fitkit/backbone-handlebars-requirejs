@@ -1,15 +1,13 @@
-<div class="centered-container">
-	<h1 class="question-title">{{ title }}</h1>
-    {{#each options}}
-        <div class="question-text-answer-container question-answer-container">
-            <div class="label-container">
-                <span class="helper"></span>
-                <input type="radio" id="option-{{ index }}" name="option" value="{{ index }}">
-                <label class="answer-label" for="option-{{ index }}">
-                    {{ alphaIndex }}
-                </label>
-            </div>
-            <h2 class="question-answer">{{ text }}</h2>
+<h1 class="question-title">{{ title }}</h1>
+{{#each options}}
+    <div class="question-text-answer-container question-answer-container">
+        <div class="label-container">
+            <span class="helper"></span>
+            <input type="radio" id="option-{{ index }}" name="option" value="{{ index }}">
+            <label class="answer-label" for="option-{{ index }}">
+                {{ alphaIndex }}
+            </label>
         </div>
-    {{/each}}
-</div>
+        <h2 class="question-answer">{{ text }}</h2>
+    </div>
+{{/each}}
