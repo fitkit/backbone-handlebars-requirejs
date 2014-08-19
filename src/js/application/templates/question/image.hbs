@@ -1,4 +1,10 @@
+{{#if img}}
+<div class="question-image" style="background-image:url({{ img }});">
+    <h1 class="question-title" style="background-color:rgba({{ bgColorRGB }})">{{ title }}</h1>
+</div>
+{{else}}
 <h1 class="question-title">{{ title }}</h1>
+{{/if}}
 {{#each options}}
     <div class="one-third">
         <div class="question-img-answer-container question-answer-container">

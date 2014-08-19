@@ -37,6 +37,8 @@ define([
                     "questions": [
                         {
                             "type": "image",
+                            "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-bg-2WJu6XiqJ1t2sMU.jpg",
+                            "bgColorRGB": "255,255,255,0.9",
                             "title": "Which player do you like more?",
                             "options": [
                                 {

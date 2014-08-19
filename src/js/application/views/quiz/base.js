@@ -53,6 +53,8 @@ define([
                         model: question
                     });
                 questionView.render();
+                this.pageCounter.render();
+
             }
         });
         return BaseQuizView;
