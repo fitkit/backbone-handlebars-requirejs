@@ -43,7 +43,6 @@ html,body{
 	left: 0;
 	width: 0%;
 	height: 2px;
-	display: none;
 }
 .footer{
 	width: 100%;
@@ -157,7 +156,6 @@ html,body{
 	position: absolute;
 	width: 100%;
 	top: 15px;
-	display: none;
 }
 
 /**** QUESTION CSS ****/
@@ -557,9 +555,6 @@ input[type=radio]{
 }
 
 /*** QUIZ FOOTER STYLE ***/
-.previous-container{
-	display: none;
-}
 .previous-container img{
 	position: absolute;
 	left: 10px;

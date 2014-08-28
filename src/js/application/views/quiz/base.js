@@ -4,16 +4,19 @@ define([
     'handlebars',
     'text!../../templates/quiz.hbs',
     '../../collections/questions',
+    '../../collections/responses',
     '../skeleton/pageCounter',
     '../pages/cover',
     '../pages/question'],
-    function ($, Backbone, Handlebars, quizTemplate, QuestionCollection, PageCounterView, CoverView, QuestionView) {
+    function ($, Backbone, Handlebars, quizTemplate, QuestionCollection, ResponseCollection, PageCounterView, CoverView, QuestionView) {
         "use strict";
         var BaseQuizView = Backbone.View.extend({
             tagName: 'div',
             parentDiv: '#content',
             events: {
-                "click .start-quiz": "renderQuestion"
+                "click .start-quiz": "handleStart",
+                "click .question-answer-container": "handleResponse",
+                "click .previous-btn": "handlePrevious"
             },
             currentQuestion: 0,
             createPageCounter: function () {
@@ -26,9 +29,13 @@ define([
                     this.model.get('questions')
                 );
             },
+            createResponseCollection: function () {
+                this.responses = new ResponseCollection();
+            },
             render: function () {
                 var template = Handlebars.compile(quizTemplate);
                 this.createQuestionCollection();
+                this.createResponseCollection();
                 this.createPageCounter();
                 $(this.el).html(template(this.model.toJSON()));
                 $(this.parentDiv).html(this.el);
@@ -40,6 +47,7 @@ define([
                     model: this.model
                 });
                 coverView.render();
+                $("#quiz-content").height($(window).height()-50);
             },
             renderPageCount: function () {
                 this.pageCounter.render(this.currentQuestion);
@@ -53,8 +61,27 @@ define([
                         model: question
                     });
                 questionView.render();
-                this.pageCounter.render();
-
+                this.pageCounter.render(this.currentQuestion);
+            },
+            updateProgressBar: function () {
+                $('.progress').animate({
+                    width: (((this.currentQuestion+1)/this.model.get('totalQuestions'))*100)+'%'
+                }, 1000, function(){});
+            },
+            handleStart: function () {
+                this.renderQuestion();
+                this.updateProgressBar();
+            },
+            handleResponse: function () {
+                //TODO: add model to responses collection
+                this.currentQuestion++;
+                this.renderQuestion();
+                this.updateProgressBar();
+            },
+            handlePrevious: function () {
+                if(this.currentQuestion > 0)
+                    this.currentQuestion--;
+                this.renderQuestion();
             }
         });
         return BaseQuizView;
