@@ -55,10 +55,18 @@ define([
             getCurrentQuestion: function () {
                 return this.questions.at(this.currentQuestion);
             },
+            getResponse: function () {
+                if(!this.responses.at(this.currentQuestion))
+                    return null;
+                else
+                    return this.responses.at(this.currentQuestion).get('val');
+            },
             renderQuestion: function () {
                 var question = this.getCurrentQuestion(),
+                    response = this.getResponse(),
                     questionView = new QuestionView({
-                        model: question
+                        model: question,
+                        response: response
                     });
                 questionView.render();
                 this.pageCounter.render(this.currentQuestion);
@@ -72,8 +80,14 @@ define([
                 this.renderQuestion();
                 this.updateProgressBar();
             },
-            handleResponse: function () {
-                //TODO: add model to responses collection
+            handleResponse: function (event) {
+                var response = $(event.currentTarget).find('input').val();
+                var qnum = this.currentQuestion;
+                if(!this.responses.at(qnum)){
+                    this.responses.add({val:response});
+                }else{
+                    this.responses.at(qnum).set('val',response);
+                }
                 this.currentQuestion++;
                 this.renderQuestion();
                 this.updateProgressBar();

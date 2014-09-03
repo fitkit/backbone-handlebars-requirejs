@@ -13,6 +13,11 @@ define([
             events: {
              // ...
             },
+            initialize: function (options) {
+                //HELP: Not sure if initialize is needed
+                this.model = options.model;
+                this.response = options.response;
+            },
             render: function () {
                 var template,
                     view = this;
@@ -26,9 +31,13 @@ define([
                     default:
                         throw 'Invalid question type';
                 }
+
                 $(this.el).html(template(this.model.toJSON()));
                 $(this.parentDiv).fadeOut(400, function () {
                     $(view.parentDiv).html(view.el).fadeIn(400);
+                    //HELP: Might be a better way to do this
+                    if(view.response != null)
+                        $('.question-answer-container').eq(parseInt(view.response)).addClass('question-answer-container-selected');
                 });
             }
         });
