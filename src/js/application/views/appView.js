@@ -33,7 +33,7 @@ define([
                         "button":"Start Now",
                         "bgColor":"#ffffff",
                         "fontColor":"#3d3d3d"
-                        },
+                    },
                     "questions": [
                         {
                             "type": "image",
@@ -70,6 +70,30 @@ define([
                                     "text": "Germany"
                                 }
                             ]
+                        }
+                    ],
+                    "answerKey": [
+                        ["1","2"],
+                        ["2","1"]
+                    ],
+                    "results": [
+                        {
+                            "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-res-uSV7OZnTxaRJ1gw.jpg",
+                            "title": "Germany",
+                            "description": "<p>You should be supporting the Germans. BEER</p>"
+                        },
+                        {
+                            "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-res-FZYqrS5QpT1BLh2.jpg",
+                            "title": "Argentina",
+                            "description": "<p>This team is also known as Messi.</p>"
+                        }
+                    ],
+                    "statistics": [
+                        {
+                            "totals": ["4","6"]
+                        },
+                        {
+                            "totals": ["7","3"]
                         }
                     ]
                 };

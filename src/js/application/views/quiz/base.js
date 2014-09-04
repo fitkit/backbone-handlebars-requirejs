@@ -7,8 +7,10 @@ define([
     '../../collections/responses',
     '../skeleton/pageCounter',
     '../pages/cover',
-    '../pages/question'],
-    function ($, Backbone, Handlebars, quizTemplate, QuestionCollection, ResponseCollection, PageCounterView, CoverView, QuestionView) {
+    '../pages/question',
+    '../pages/email',
+    '../pages/results'],
+    function ($, Backbone, Handlebars, quizTemplate, QuestionCollection, ResponseCollection, PageCounterView, CoverView, QuestionView, EmailView, ResultsView) {
         "use strict";
         var BaseQuizView = Backbone.View.extend({
             tagName: 'div',
@@ -16,7 +18,8 @@ define([
             events: {
                 "click .start-quiz": "handleStart",
                 "click .question-answer-container": "handleResponse",
-                "click .previous-btn": "handlePrevious"
+                "click .previous-btn": "handlePrevious",
+                "click .skip": "handleSkip"
             },
             currentQuestion: 0,
             createPageCounter: function () {
@@ -71,6 +74,20 @@ define([
                 questionView.render();
                 this.pageCounter.render(this.currentQuestion);
             },
+            renderEmail: function () {
+                //TODO: possibly calculate score and post updates before this
+                this.calculateResult();
+                var emailView = new EmailView();
+                emailView.render();
+            },
+            renderResults: function () {
+                var resultsView = new ResultsView({
+                        result: this.result
+                    });
+                $('.email-modal').animate({top:"-100%"}, 400, "swing", function(){
+                    resultsView.render();
+                });
+            },
             updateProgressBar: function () {
                 $('.progress').animate({
                     width: (((this.currentQuestion+1)/this.model.get('totalQuestions'))*100)+'%'
@@ -89,13 +106,20 @@ define([
                     this.responses.at(qnum).set('val',response);
                 }
                 this.currentQuestion++;
-                this.renderQuestion();
-                this.updateProgressBar();
+                if(this.currentQuestion == this.model.get('totalQuestions')){
+                    this.renderEmail();
+                }else{
+                    this.renderQuestion();
+                    this.updateProgressBar();
+                }    
             },
             handlePrevious: function () {
                 if(this.currentQuestion > 0)
                     this.currentQuestion--;
                 this.renderQuestion();
+            },
+            handleSkip: function () {
+                this.renderResults();
             }
         });
         return BaseQuizView;
