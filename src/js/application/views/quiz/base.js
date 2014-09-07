@@ -84,7 +84,8 @@ define([
             },
             renderResults: function () {
                 var resultsView = new ResultsView({
-                        result: this.result
+                        result: this.result,
+                        quiz: this.model
                     });
                 $('.email-modal').animate({top:"-100%"}, 400, "swing", function(){
                     resultsView.render();

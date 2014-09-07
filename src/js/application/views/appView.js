@@ -25,6 +25,10 @@ define([
             fetchQuiz: function () {
                 var fakeData = {
                     "id": "fooBar",
+                    "sharing": {
+                        "url": "http://tryinteract.com",
+                        "twitterVia": "true"
+                    },
                     "title": "Which World Cup team are you?",
                     "description": "Find out which team you should be supporting in the final.",
                     "totalQuestions": 2,

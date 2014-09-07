@@ -613,7 +613,8 @@ input[type=radio]{
 	width: 150px;
 	height: 34px;
 	display: inline-block;
-	background-image: url(images/social-btns.png);
+    text-indent: -9999px;
+	background-image: url('../img/social-btns.png');
 	background-size: 300px;
 }
 .fb{
