@@ -32,7 +32,7 @@ define([
                     "title": "Which World Cup team are you?",
                     "description": "Find out which team you should be supporting in the final.",
                     "totalQuestions": 2,
-                    "type": "personality",
+                    "type": "mc",
                     "custom": {
                         "cover":"https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-bg-2WJu6XiqJ1t2sMU.jpg",
                         "button":"Start Now",
@@ -78,8 +78,14 @@ define([
                         }
                     ],
                     "answerKey": [
-                        ["1","2"],
-                        ["2","1"]
+                        {
+                            "index": 0,
+                            "explanation": "This correct because it is correct."
+                        },
+                        {
+                            "index": 1,
+                            "explanation": "This correct because I say so."
+                        }
                     ],
                     "results": [
                         {
@@ -93,6 +99,9 @@ define([
                             "description": "<p>This team is also known as Messi.</p>"
                         }
                     ],
+                    "settings": {
+                        "revealAnswer" : true
+                    },
                     "statistics": [
                         {
                             "totals": ["4","6"]

@@ -100,13 +100,22 @@ define([
                 this.renderQuestion();
                 this.updateProgressBar();
             },
-            handleResponse: function (event) {
-                var response = $(event.currentTarget).find('input').val();
-                var qnum = this.currentQuestion;
+            saveResponse: function (event) {
+                var response = parseInt($(event.currentTarget).find('input').val(), 10),
+                    qnum = this.currentQuestion;
                 if(!this.responses.at(qnum)){
                     this.responses.add({val:response});
                 }else{
                     this.responses.at(qnum).set('val',response);
+                }
+            },
+            handleResponse: function (event) {
+                this.saveResponse(event);
+                this.advance();
+            },
+            advance: function (event) {
+                if (event) {
+                    event.preventDefault();
                 }
                 this.currentQuestion++;
                 if(this.currentQuestion == this.model.get('totalQuestions')){
@@ -114,7 +123,7 @@ define([
                 }else{
                     this.renderQuestion();
                     this.updateProgressBar();
-                }    
+                }
             },
             handlePrevious: function () {
                 if(this.currentQuestion > 0)

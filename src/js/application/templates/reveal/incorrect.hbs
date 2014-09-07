@@ -1,0 +1,14 @@
+<div class="answer-reveal-incorrect">
+	<div class="answer-container">
+		<div class="answer-content">
+			<p class="answer-reveal-title"><img src="img/incorrect.png"> Wrong!</p>
+			<p class="answer-reveal-question">{{ question }}</p>
+			<p class="answer-reveal-answer"><strong>Your Answer:</strong> {{ response }}</p>
+		    <p class="answer-reveal-answer"><strong>Correct Answer:</strong> {{ answer }}</p>
+			{{#if explanation}}
+			<p class="answer-reveal-answer"><strong>Explanation:</strong> {{ explanation }}</p>
+			{{/if}}
+			<a href="#" role="button" class="answer-reveal-next">Next</a>
+		</div>
+	</div>
+</div>
