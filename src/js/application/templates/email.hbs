@@ -1,27 +1,25 @@
 <div class="email-modal">
 	<div class="email-content">
 		{{#if logo}}
-		<div class="email-logo"><img src="{{ logo }}" height="55"></div>
+            <div class="email-logo"><img src="{{ logo }}" height="55"></div>
 		{{/if}}
 		{{#if mailHeading}}
-		<h1 class="email-title">{{ mailHeading }}</h1>
+		    <h1 class="email-title">{{ mailHeading }}</h1>
 		{{else}}
-		<h1 class="email-title">Enter your email to see your results!</h1>
+		    <h1 class="email-title">Enter your email to see your results!</h1>
 		{{/if}}
 		{{#if mailSubheading}}
-		<h2 class="email-subtitle">{{ mailSubheading }}</h2>
+		    <h2 class="email-subtitle">{{ mailSubheading }}</h2>
 		{{else}}
-		<h2 class="email-subtitle">We will send you fun and infrequent updates.</h2>
+		    <h2 class="email-subtitle">We will send you fun and infrequent updates.</h2>
 		{{/if}}
-		<div id="email-error" class="alert alert-danger text-center" style="display:none">Please enter a valid email address.</div>
-		<input type="text" name="email-input" value="" class="form-control" placeholder="Enter email here...">
+		<div id="email-error" class="alert alert-danger text-center hide">Please enter a valid email address.</div>
 		<form id="email-form" action="./" method="post">
-			<input type="hidden" name="email" value="">
+		    <input type="text" id="email" value="" class="form-control" placeholder="Enter email here...">
 			<div id="submit-buttons">
 				<p class="submit-email-container"><input type="submit" class="submit-email" value="See My Results"></p>
 				<p class="skip-link"><a role="button" class="skip">Skip this step</a></p>
 			</div>
-			<div id="loading" class="text-center" style="display:none;margin:36px;"><img src="https://www.tryinteract.com/create/img/loading.gif" width="45"></div>
 		</form>
 	</div>
 </div>

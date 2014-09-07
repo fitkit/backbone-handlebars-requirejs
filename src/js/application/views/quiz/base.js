@@ -19,7 +19,8 @@ define([
                 "click .start-quiz": "handleStart",
                 "click .question-answer-container": "handleResponse",
                 "click .previous-btn": "handlePrevious",
-                "click .skip": "handleSkip"
+                "click .skip": "renderResults",
+                "emailSaved": "renderResults"
             },
             currentQuestion: 0,
             createPageCounter: function () {
@@ -78,6 +79,7 @@ define([
                 //TODO: possibly calculate score and post updates before this
                 this.calculateResult();
                 var emailView = new EmailView();
+                emailView.quiz = this.model;
                 emailView.render();
             },
             renderResults: function () {
@@ -117,9 +119,6 @@ define([
                 if(this.currentQuestion > 0)
                     this.currentQuestion--;
                 this.renderQuestion();
-            },
-            handleSkip: function () {
-                this.renderResults();
             }
         });
         return BaseQuizView;

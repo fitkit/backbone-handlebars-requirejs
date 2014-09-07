@@ -5,7 +5,7 @@ define([
         "use strict";
         var QuizModel = Backbone.Model.extend({
             url: function () {
-                return '/quiz' + this.get('user') + '/' + this.get('id');
+                return '/quiz/' + this.get('user') + '/' + this.get('id');
             }
         });
         return QuizModel;
