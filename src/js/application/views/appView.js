@@ -32,7 +32,7 @@ define([
                     "title": "Which World Cup team are you?",
                     "description": "Find out which team you should be supporting in the final.",
                     "totalQuestions": 2,
-                    "type": "mc",
+                    "type": "personality",
                     "custom": {
                         "cover":"https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-bg-2WJu6XiqJ1t2sMU.jpg",
                         "button":"Start Now",
@@ -78,14 +78,8 @@ define([
                         }
                     ],
                     "answerKey": [
-                        {
-                            "index": 0,
-                            "explanation": "This correct because it is correct."
-                        },
-                        {
-                            "index": 1,
-                            "explanation": "This correct because I say so."
-                        }
+                        [1,2],
+                        [2,1]
                     ],
                     "results": [
                         {
@@ -100,7 +94,9 @@ define([
                         }
                     ],
                     "settings": {
-                        "revealAnswer" : true
+                        "revealAnswer": true,
+                        "mailProvider": "feedburner",
+                        "mailingList": "CrazySexyFunTraveler"
                     },
                     "statistics": [
                         {

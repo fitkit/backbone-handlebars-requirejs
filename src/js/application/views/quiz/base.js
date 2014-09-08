@@ -8,7 +8,7 @@ define([
     '../skeleton/pageCounter',
     '../pages/cover',
     '../pages/question',
-    '../pages/email',
+    '../email/delegate',
     '../pages/results'],
     function ($, Backbone, Handlebars, quizTemplate, QuestionCollection, ResponseCollection, PageCounterView, CoverView, QuestionView, EmailView, ResultsView) {
         "use strict";
@@ -78,8 +78,10 @@ define([
             renderEmail: function () {
                 //TODO: possibly calculate score and post updates before this
                 this.calculateResult();
-                var emailView = new EmailView();
-                emailView.quiz = this.model;
+
+                var emailView = new EmailView({
+                    quiz: this.model
+                });
                 emailView.render();
             },
             renderResults: function () {
