@@ -46,7 +46,7 @@ define([
                         app_id: '746159965404389',
                         link: this.quiz.get('sharing').url,
                         picture: this.result.img,
-                        name: this.result.title,
+                        name: 'I got ' + this.result.title + ' - ' + this.quiz.get('title'),
                         description: this.result.description.replace(/(<([^>]+)>)/ig,""),
                         redirect_uri: 'https://www.tryinteract.com/share.php'
                     }),

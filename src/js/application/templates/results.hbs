@@ -1,4 +1,7 @@
 <div class="centered-container">
+	{{#if showScore}}
+	<h1 class="results-title">You got {{ score }} out of {{ total }} correct</h1>
+	{{/if}}
 	<h2 class="results-subtitle">{{ title }}</h2>
 	{{#if img}}
 	<div class="results-img" style="background-image:url({{ img }});"></div>

@@ -36,7 +36,7 @@ define([
                     question: this.question.title,
                     answer: this.question.options[this.answer.index].text
                 }));
-                $(this.parentDiv).html(this.el).fadeIn(100);
+                $(this.parentDiv).html(this.el).fadeIn(200);
             }
         });
         return RevealView;

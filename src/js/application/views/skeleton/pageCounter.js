@@ -8,13 +8,11 @@ define([
         var PageCounterView = Backbone.View.extend({
             tagName: 'div',
             parentDiv: '#page-counter',
-            initialize: function (options){
-                this.totalQuestions = options.totalQuestions;
-            },
             hasPrevious: function (page) {
-                if (page > 0)
-                    return true;
-
+                if (!this.model.get('settings').revealAnswer){
+                    if (page > 0)
+                        return true;
+                }
                 return false;
             },
             render: function (page) {
@@ -23,7 +21,7 @@ define([
 
                 $(this.el).html(template({
                     page: page+1,
-                    totalQuestions: this.totalQuestions,
+                    totalQuestions: this.model.get('totalQuestions'),
                     hasPrevious: this.hasPrevious(page)
                 }));
 

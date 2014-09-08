@@ -25,7 +25,7 @@ define([
             currentQuestion: 0,
             createPageCounter: function () {
                 this.pageCounter = new PageCounterView({
-                    totalQuestions: this.model.get('totalQuestions')
+                    model: this.model
                 });
             },
             createQuestionCollection: function () {

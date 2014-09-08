@@ -25,14 +25,10 @@ define([
             fetchQuiz: function () {
                 var fakeData = {
                     "id": "fooBar",
-                    "sharing": {
-                        "url": "http://tryinteract.com",
-                        "twitterVia": "true"
-                    },
                     "title": "Which World Cup team are you?",
                     "description": "Find out which team you should be supporting in the final.",
                     "totalQuestions": 2,
-                    "type": "personality",
+                    "type": "mc",
                     "custom": {
                         "cover":"https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-bg-2WJu6XiqJ1t2sMU.jpg",
                         "button":"Start Now",
@@ -78,8 +74,14 @@ define([
                         }
                     ],
                     "answerKey": [
-                        [1,2],
-                        [2,1]
+                        {
+                            "index": 0,
+                            "explanation": "Because you are really dumb"
+                        },
+                        {
+                            "index": 1,
+                            "explanation": "Because you are really smart"
+                        }
                     ],
                     "results": [
                         {
@@ -105,7 +107,11 @@ define([
                         {
                             "totals": ["7","3"]
                         }
-                    ]
+                    ],
+                    "sharing": {
+                        "url": "http://tryinteract.com",
+                        "twitterVia": "true"
+                    }
                 };
                 this.model.set(fakeData);
                 this.renderQuiz();
