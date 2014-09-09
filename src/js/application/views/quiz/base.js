@@ -75,10 +75,18 @@ define([
                 questionView.render();
                 this.pageCounter.render(this.currentQuestion);
             },
-            renderEmail: function () {
-                //TODO: possibly calculate score and post updates before this
+            handleEmail: function () {
                 this.calculateResult();
-
+                if (this.model.get('settings').mailProvider == 'null') {
+                    $('.previous-container').hide();
+                    $('.counter').hide();
+                    $('.progress').fadeOut(400);
+                    this.renderResults();
+                }else {
+                    this.renderEmail();
+                }
+            },
+            renderEmail: function () {
                 var emailView = new EmailView({
                     quiz: this.model
                 });
@@ -89,9 +97,14 @@ define([
                         result: this.result,
                         quiz: this.model
                     });
-                $('.email-modal').animate({top:"-100%"}, 400, "swing", function(){
+                if (this.model.get('settings').mailProvider == 'null') {
                     resultsView.render();
-                });
+                }else {
+                    $('.email-modal').animate({top:"-100%"}, 400, "swing", function(){
+                        resultsView.render();
+                    });
+                }
+                
             },
             updateProgressBar: function () {
                 $('.progress').animate({
@@ -121,7 +134,7 @@ define([
                 }
                 this.currentQuestion++;
                 if(this.currentQuestion == this.model.get('totalQuestions')){
-                    this.renderEmail();
+                    this.handleEmail();
                 }else{
                     this.renderQuestion();
                     this.updateProgressBar();

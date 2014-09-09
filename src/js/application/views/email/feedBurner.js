@@ -11,7 +11,7 @@ define([
             render: function () {
                 var template = Handlebars.compile(emailTemplate);
                 $(this.el).html(template({
-                    mailingList: this.quiz.get('settings').mailingList
+                    mailList: this.quiz.get('settings').mailList
                 }));
                 this.animateContent();
             },
@@ -23,7 +23,7 @@ define([
                         quiz: this.quiz.get('id'),
                         address: $('#email').val()
                     }),
-                    url = 'http://feedburner.google.com/fb/a/mailverify?uri=' + this.quiz.get('settings').mailingList,
+                    url = 'http://feedburner.google.com/fb/a/mailverify?uri=' + this.quiz.get('settings').mailList,
                     popupOptions = "scrollbars=yes,width=550,height=520";
                 if (email.validateAddress()) {
                     email.save();

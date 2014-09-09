@@ -24,7 +24,7 @@ define([
 //            },
             fetchQuiz: function () {
                 var fakeData = {
-                    "id": "fooBar",
+                    "id": "123",
                     "title": "Which World Cup team are you?",
                     "description": "Find out which team you should be supporting in the final.",
                     "totalQuestions": 2,
@@ -97,8 +97,8 @@ define([
                     ],
                     "settings": {
                         "revealAnswer": true,
-                        "mailProvider": "feedburner",
-                        "mailingList": "CrazySexyFunTraveler"
+                        "mailProvider": "null",
+                        "mailList": "CrazySexyFunTraveler"
                     },
                     "statistics": [
                         {
