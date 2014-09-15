@@ -13,6 +13,17 @@ define([
                 var template = Handlebars.compile(coverTemplate);
                 $(this.el).html(template(this.model.toJSON()));
                 $(this.parentDiv).html(this.el);
+                this.changeBtnColor();
+            },
+            events: {
+                'mouseenter .start-quiz': 'hoverBtnColor',
+                'mouseleave .start-quiz': 'changeBtnColor'
+            },
+            changeBtnColor: function() {
+                $('.start-quiz').css('background-color',this.model.get('custom').btnColor);
+            },
+            hoverBtnColor: function () {
+                $('.start-quiz').css('background-color',this.model.get('custom').btnColorHover);
             }
         });
         return CoverView;
