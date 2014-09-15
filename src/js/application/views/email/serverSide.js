@@ -18,12 +18,12 @@ define([
             },
             saveEmail: function (event) {
                 var email = new EmailModel({
-                    address: $('#email').val(),
-                    quiz: this.quiz.get('id')
-                });
+                        quiz: this.quiz.get('id'),
+                        address: $('#email').val()
+                    });
                 event.preventDefault();
                 if (email.validateAddress()) {
-                    email.save(); // If you want to handle errors, add an error callback
+                    email.save();
                     $('#email-form').trigger('emailSaved');
                 } else {
                     this.showError();

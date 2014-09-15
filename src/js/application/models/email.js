@@ -5,7 +5,7 @@ define([
         "use strict";
         var EmailModel = Backbone.Model.extend({
             url: function () {
-                return '/email/' + this.get('quiz');
+                return 'http://localhost/interact/email';
             },
             validateAddress: function () {
                 // TODO: Validate email

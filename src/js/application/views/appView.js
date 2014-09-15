@@ -10,6 +10,10 @@ define([
         "use strict";
         var AppView = Backbone.View.extend({
             el: '#content',
+            initialize: function (options) {
+                this.user = options.user;
+                this.id = options.id;
+            },
             render: function () {
                 this.model = new QuizModel({
                     user: this.user,
@@ -17,11 +21,17 @@ define([
                 });
                 this.fetchQuiz();
             },
-//            fetchQuiz: function () {
-//                this.model.fetch({
-//                    success: this.renderQuiz
-//                });
-//            },
+            fetchQuiz: function () {
+                var model = this.model,
+                    view = this;
+                this.model.fetch({
+                    success: function(model, response){
+                        model.set(response);
+                        view.renderQuiz();
+                    }
+                });
+            },
+            /*
             fetchQuiz: function () {
                 var fakeData = {
                     "id": "123",
@@ -116,6 +126,7 @@ define([
                 this.model.set(fakeData);
                 this.renderQuiz();
             },
+            */
             renderQuiz: function () {
                 var quizView;
                 switch (this.model.get('type')) {

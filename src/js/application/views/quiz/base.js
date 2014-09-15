@@ -15,6 +15,12 @@ define([
         var BaseQuizView = Backbone.View.extend({
             tagName: 'div',
             parentDiv: '#content',
+            initialize: function () {
+                $(window).on("resize",this.resizeContent);
+            },
+            resizeContent: function () {
+                $("#quiz-content").height($(window).height()-50);
+            },
             events: {
                 "click .start-quiz": "handleStart",
                 "click .question-answer-container": "handleResponse",
@@ -51,7 +57,7 @@ define([
                     model: this.model
                 });
                 coverView.render();
-                $("#quiz-content").height($(window).height()-50);
+                this.resizeContent();
             },
             renderPageCount: function () {
                 this.pageCounter.render(this.currentQuestion);
