@@ -8,7 +8,6 @@ define([
             calculateResult: function () {
                 var answerKey = this.model.get('answerKey'),
                     results = this.model.get('results'),
-                    statistics = this.model.get('statistics'),
                     responses = this.responses,
                     totalQuestions = this.model.get('totalQuestions'),
                     score = 0;
@@ -16,11 +15,6 @@ define([
                 for(var j = 0; j < totalQuestions; j++){
                     var responseIndex = responses.at(j).get('val');
                     score += answerKey[j][responseIndex];
-
-                    //Update question statistics
-                    statistics[j].totals[responseIndex]++;
-
-                    //TODO: POST request to update statistics
                 }
 
                 //Store the proper result outcome

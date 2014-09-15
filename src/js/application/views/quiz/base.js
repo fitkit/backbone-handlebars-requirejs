@@ -5,12 +5,13 @@ define([
     'text!../../templates/quiz.hbs',
     '../../collections/questions',
     '../../collections/responses',
+    '../../models/stats',
     '../skeleton/pageCounter',
     '../pages/cover',
     '../pages/question',
     '../email/delegate',
     '../pages/results'],
-    function ($, Backbone, Handlebars, quizTemplate, QuestionCollection, ResponseCollection, PageCounterView, CoverView, QuestionView, EmailView, ResultsView) {
+    function ($, Backbone, Handlebars, quizTemplate, QuestionCollection, ResponseCollection, StatsModel, PageCounterView, CoverView, QuestionView, EmailView, ResultsView) {
         "use strict";
         var BaseQuizView = Backbone.View.extend({
             tagName: 'div',
@@ -83,6 +84,7 @@ define([
             },
             handleEmail: function () {
                 this.calculateResult();
+                this.updateStatistics();
                 if (this.model.get('settings').mailProvider == 'null') {
                     $('.previous-container').hide();
                     $('.counter').hide();
@@ -150,6 +152,20 @@ define([
                 if(this.currentQuestion > 0)
                     this.currentQuestion--;
                 this.renderQuestion();
+            },
+            updateStatistics: function () {
+                var stats = new StatsModel({
+                    quiz: this.model.get('id'),
+                    responses: JSON.stringify(this.responses.toJSON())
+                });
+                stats.save(null,{
+                    success: function(model, response){
+                        console.log(response);
+                    },
+                    error: function(model, response){
+                        console.log(response);
+                    }
+                });
             }
         });
         return BaseQuizView;
