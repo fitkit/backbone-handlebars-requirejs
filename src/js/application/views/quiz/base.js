@@ -158,14 +158,7 @@ define([
                     quiz: this.model.get('id'),
                     responses: JSON.stringify(this.responses.toJSON())
                 });
-                stats.save(null,{
-                    success: function(model, response){
-                        console.log(response);
-                    },
-                    error: function(model, response){
-                        console.log(response);
-                    }
-                });
+                stats.save();
             }
         });
         return BaseQuizView;

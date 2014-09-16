@@ -14,7 +14,7 @@ define([
 
                 for(var j = 0; j < totalQuestions; j++){
                     var responseIndex = responses.at(j).get('val');
-                    score += answerKey[j][responseIndex];
+                    score += parseInt(answerKey[j][responseIndex]);
                 }
 
                 //Store the proper result outcome
@@ -28,6 +28,8 @@ define([
                 }
 
                 this.result = results[resultIndex];
+                this.result.showScore = true;
+                this.result.score = score;
 
             }
         });

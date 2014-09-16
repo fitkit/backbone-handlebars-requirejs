@@ -67,7 +67,7 @@ define([
                 }
 
                 this.result = results[resultIndex];
-                this.result.showScore = true;
+                this.result.showMcScore = true;
                 this.result.score = score;
                 this.result.total = totalQuestions;
 
