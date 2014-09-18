@@ -39,10 +39,9 @@ is stored in the `build` directory (which is ignored by git).
 Deploying to Production
 ------------------------
 
-You have a great deal of flexibility about how to serve your app in production. You could upload the contents of the build
-directory to a static origin like Amazon S3, or you could easily add them to an existing application served by Nginx or
-Apache. Whatever you use as an origin, the contents of the build directory are prime candidates for a CDN and aggressive
-client-side cacheing.
+To deploy to production, add your AWS credentials to an awsConfig.js file (do not check this in to Github). Then simply
+run `grunt deploy`.
+
 
 Acknowledgements
 ------------------
