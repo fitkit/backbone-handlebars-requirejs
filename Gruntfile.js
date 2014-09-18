@@ -1,5 +1,9 @@
+var awsConfig = require('./awsConfig'), // The AWS config file is gitignored for security
+    productionBucket = 'quiz.tryinteract.com';
+
 module.exports = function (grunt) {
     "use strict";
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         requirejs: {
@@ -40,6 +44,35 @@ module.exports = function (grunt) {
                 }
             }
         },
+        aws_s3: {
+            options: {
+                accessKeyId: awsConfig.access,
+                secretAccessKey: awsConfig.secret,
+                region: 'us-west-1',
+                uploadConcurrency: 5,
+                downloadConcurrency: 5
+            },
+            production: {
+                options: {
+                    bucket: productionBucket,
+                    differential: true // Only uploads changed files
+                },
+                files: [
+                    {expand: true, cwd: 'build/', src: ['**'], dest: ''}
+                    // Note: If you set up cache busting, you will want to set long-expiring cache-headers for
+                    //       everything except index.html here
+                ]
+            },
+            clean_production: {
+                options: {
+                    bucket: productionBucket,
+                    differential: true
+                },
+                files: [
+                    {dest: '/', 'action': 'delete', cwd: "build/", src: ['**']}
+                ]
+            }
+        },
         watch: {
             scripts: {
                 files: 'src/**/*',
@@ -52,6 +85,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-aws-s3');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('runNode', function () {
@@ -66,11 +100,14 @@ module.exports = function (grunt) {
         });
     });
 
-
+    grunt.registerTask('s3', ['aws_s3:production', 'aws_s3:clean_production']);
     grunt.registerTask('compile', ['requirejs']);
 
     // Run the server and watch for file changes
     grunt.registerTask('server', ['runNode', 'compile', 'watch']);
+
+    // Deploy app to S3
+    grunt.registerTask('deploy', ['compile','s3']);
 
     // Default task(s).
     grunt.registerTask('default', ['compile']);
