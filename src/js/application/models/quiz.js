@@ -1,11 +1,12 @@
 define([
     'jquery',
-    'backbone'],
-    function ($, Backbone) {
+    'backbone',
+    './base'],
+    function ($, Backbone, BaseModel) {
         "use strict";
-        var QuizModel = Backbone.Model.extend({
+        var QuizModel = BaseModel.extend({
             url: function () {
-                return 'http://localhost/interact/quiz/' + this.get('user') + '/' + this.get('id');
+                return this.baseUrl + 'interact/quiz/' + this.get('user') + '/' + this.get('id');
             }
         });
         return QuizModel;

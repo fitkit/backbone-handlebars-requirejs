@@ -1,11 +1,12 @@
 define([
     'jquery',
-    'backbone'],
-    function ($, Backbone) {
+    'backbone',
+    './base'],
+    function ($, Backbone, BaseModel) {
         "use strict";
-        var EmailModel = Backbone.Model.extend({
+        var EmailModel = BaseModel.extend({
             url: function () {
-                return 'http://localhost/interact/email';
+                return this.baseUrl + 'interact/email';
             },
             validateAddress: function () {
                 var x = this.get('address');

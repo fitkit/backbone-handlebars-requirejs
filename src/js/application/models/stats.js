@@ -1,11 +1,12 @@
 define([
     'jquery',
-    'backbone'],
-    function ($, Backbone) {
+    'backbone',
+    './base'],
+    function ($, Backbone, BaseModel) {
         "use strict";
-        var StatsModel = Backbone.Model.extend({
+        var StatsModel = BaseModel.extend({
             url: function () {
-                return 'http://localhost/interact/stats';
+                return this.baseUrl + 'interact/stats';
             }
         });
         return StatsModel;
