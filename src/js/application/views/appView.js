@@ -40,15 +40,16 @@ define([
                     "totalQuestions": 2,
                     "type": "mc",
                     "custom": {
-                        "cover":"https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-bg-2WJu6XiqJ1t2sMU.jpg",
+                        "cover":"https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1/1342/bg-OdGADlbf2XPGGb7.jpg",
                         "button":"Start Now",
                         "bgColor":"#ffffff",
-                        "fontColor":"#3d3d3d"
+                        "fontColor":"#3d3d3d",
+                        "fontType":"1884/2628/1884-2628-font.otf"
                     },
                     "questions": [
                         {
                             "type": "image",
-                            "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1-bg-2WJu6XiqJ1t2sMU.jpg",
+                            "img": "https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1/1342/bg-OdGADlbf2XPGGb7.jpg",
                             "bgColorRGB": "255,255,255,0.9",
                             "title": "Which player do you like more?",
                             "options": [
@@ -110,14 +111,6 @@ define([
                         "mailProvider": "null",
                         "mailList": "CrazySexyFunTraveler"
                     },
-                    "statistics": [
-                        {
-                            "totals": ["4","6"]
-                        },
-                        {
-                            "totals": ["7","3"]
-                        }
-                    ],
                     "sharing": {
                         "url": "http://tryinteract.com",
                         "twitterVia": "true"

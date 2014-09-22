@@ -114,8 +114,7 @@ html,body{
 }
 .quiz-image{
 	width: 100%;
-	height: 400px;
-	max-height: 400px;
+	padding-bottom: 44.4%;
 	position: relative;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -177,8 +176,7 @@ html,body{
 }
 .question-image{
 	width: 100%;
-	height: 400px;
-	max-height: 400px;
+	padding-bottom: 44.4%;
 	position: relative;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -736,7 +734,7 @@ input[type=radio]{
 	}
 	.quiz-image{
 		width: 100%;
-		height: 325px;
+		padding-bottom: 44.4%;
 	}
 	.quiz-subtitle{
 		font-size: 18px;
@@ -751,7 +749,7 @@ input[type=radio]{
 	}
 	.question-image{
 		width: 100%;
-		height: 325px;
+		padding-bottom: 44.4%;
 	}
 	.question-answer{
 		font-size: 20px;
@@ -805,7 +803,7 @@ input[type=radio]{
 	}
 	.quiz-image{
 		width: 100%;
-		height: 250px;
+		padding-bottom: 44.4%;
 	}
 	.quiz-subtitle{
 		font-size: 16px;
@@ -819,7 +817,7 @@ input[type=radio]{
 	}
 	.question-image{
 		width: 100%;
-		height: 250px;
+		padding-bottom: 44.4%;
 	}
 	.question-img-answer{
 		font-size: 16px;
@@ -918,7 +916,7 @@ input[type=radio]{
 	}
 	.quiz-image{
 		width: 100%;
-		height: 40%;
+		padding-bottom: 44.4%;
 	}
 	.quiz-subtitle{
 		font-size: 16px;
@@ -929,7 +927,7 @@ input[type=radio]{
 	/*** QUETSIONS ***/
 	.question-image{
 		width: 100%;
-		height: 40%;
+		padding-bottom: 44.4%;
 	}
 	.one-third{
 		width: 50%;

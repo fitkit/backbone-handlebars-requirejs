@@ -52,6 +52,8 @@ define([
                 $(this.parentDiv).html(this.el);
                 this.renderCover();
                 document.title = this.model.get('title');
+                if(this.model.get('custom').fontType)
+                    this.setFontType();
             },
             renderCover: function () {
                 var coverView = new CoverView({
@@ -159,6 +161,9 @@ define([
                     responses: JSON.stringify(this.responses.toJSON())
                 });
                 stats.save();
+            },
+            setFontType: function () {
+                $('#content').append('<style>@font-face{font-family:fontType;src:url(font/'+this.model.get('custom').fontType+');}body,html{font-family:fontType;}</style>')
             }
         });
         return BaseQuizView;
