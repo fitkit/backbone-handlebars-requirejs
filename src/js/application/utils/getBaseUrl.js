@@ -5,10 +5,10 @@ define([],
             var baseUrl;
             switch (window.location.hostname) {
                 case 'localhost':
-                    baseUrl = 'http://localhost/';
+                    baseUrl = 'http://localhost/interact';
                     break;
                 default:
-                    baseUrl = 'https://api.tryinteract.com/';
+                    baseUrl = 'https://api.tryinteract.com';
             }
             return baseUrl;
         }

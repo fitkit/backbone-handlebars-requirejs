@@ -6,7 +6,7 @@ define([
         "use strict";
         var EmailModel = BaseModel.extend({
             url: function () {
-                return this.baseUrl + 'interact/email';
+                return this.baseUrl + '/email';
             },
             validateAddress: function () {
                 var x = this.get('address');
