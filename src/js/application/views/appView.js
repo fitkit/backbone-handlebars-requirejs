@@ -36,14 +36,16 @@ define([
                 var fakeData = {
                     "id": "123",
                     "title": "Which World Cup team are you?",
-                    "description": "Find out which team you should be supporting in the final.",
+                    "description": "\u201cFind out which team you should be supporting in the final.\u201c",
                     "totalQuestions": 2,
                     "type": "mc",
                     "custom": {
                         "cover":"https://s3-us-west-1.amazonaws.com/tryinteract-uploads/1/1342/bg-OdGADlbf2XPGGb7.jpg",
                         "button":"Start Now",
                         "bgColor":"#ffffff",
-                        "fontColor":"#3d3d3d"
+                        "fontColor":"#3d3d3d",
+                        "mailHeading":"Your text here",
+                        "mailSubheading":"Something else here"
                     },
                     "questions": [
                         {
@@ -107,7 +109,7 @@ define([
                     ],
                     "settings": {
                         "revealAnswer": true,
-                        "mailProvider": "null",
+                        "mailProvider": "csvfile",
                         "mailList": "CrazySexyFunTraveler"
                     },
                     "sharing": {

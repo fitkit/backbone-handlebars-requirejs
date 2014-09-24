@@ -5,7 +5,7 @@ define([],
             var baseUrl;
             switch (window.location.hostname) {
                 case 'localhost':
-                    baseUrl = 'http://localhost/interact';
+                    baseUrl = 'http://localhost/interact-api';
                     break;
                 default:
                     baseUrl = 'https://api.tryinteract.com';

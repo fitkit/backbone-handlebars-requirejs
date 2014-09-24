@@ -56,7 +56,7 @@ define([
             getTwitterURL: function () {
                 var params = {
                         url: this.quiz.get('sharing').url,
-                        text: this.result.title,
+                        text: 'I got ' + this.result.title + ' - ' + this.quiz.get('title'),
                         redirect_uri: 'https://www.tryinteract.com/share.php'
                     },
                     url;

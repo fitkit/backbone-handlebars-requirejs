@@ -10,7 +10,7 @@ define([
         var EmailView = EmailBaseView.extend({
             render: function () {
                 var template = Handlebars.compile(emailTemplate);
-                $(this.el).html(template());
+                $(this.el).html(template(this.quiz.get('custom')));
                 this.animateContent();
             },
             events: {
