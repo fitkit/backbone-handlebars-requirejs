@@ -22,21 +22,23 @@ define([
                 this.fetchQuiz();
             },
             fetchQuiz: function () {
-                var model = this.model,
-                    view = this;
+                var view = this;
                 this.model.fetch({
                     success: function(model, response){
                         model.set(response);
                         view.renderQuiz();
+                    },
+                    error: function(model, response){
+                        console.log(response.responseText);
                     }
                 });
             },
             /*
             fetchQuiz: function () {
                 var fakeData = {
-                    "id": "123",
+                    "id": "1389",
                     "title": "Which World Cup team are you?",
-                    "description": "\u201cFind out which team you should be supporting in the final.\u201c",
+                    "description": "Find out which team you should be supporting in the final.",
                     "totalQuestions": 2,
                     "type": "mc",
                     "custom": {

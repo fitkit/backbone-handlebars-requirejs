@@ -2,8 +2,9 @@ define([
     'jquery',
     'backbone',
     'handlebars',
-    'text!../../templates/results.hbs'],
-    function ($, Backbone, Handlebars, resultsTemplate) {
+    'text!../../templates/results.hbs',
+    'text!../../templates/showAnswers.hbs'],
+    function ($, Backbone, Handlebars, resultsTemplate, showAnswersTemplate) {
         "use strict";
         var ResultsView = Backbone.View.extend({
             tagName: 'div',
@@ -17,6 +18,9 @@ define([
                 var template = Handlebars.compile(resultsTemplate);
                 $(this.el).html(template(this.result));
                 $(this.parentDiv).html(this.el).show();
+                if(this.quiz.get('settings').showAnswers){
+                    this.showAnswers();
+                }
             },
             events: {
                 "click .fb": "shareToFacebook",
@@ -66,6 +70,11 @@ define([
                 params = $.param(params);
                 url = 'https://twitter.com/intent/tweet?' + params;
                 return url;
+            },
+            showAnswers: function () {
+                var showAnswers = this.quiz.get('showAnswers');
+                var showTemplate = Handlebars.compile(showAnswersTemplate);
+                $('.centered-container').append(showTemplate({responses:showAnswers}));
             }
         });
         return ResultsView;

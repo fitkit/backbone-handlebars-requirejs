@@ -1,0 +1,21 @@
+<div class="show-answers">
+	<p class="show-answer-text">Answer Key</p>
+	{{#each responses}}
+		{{#if response}}
+		<div class="show-answer incorrect-answer">
+			<p class="show-answer-label">{{ index }}</p>
+			<p class="show-answer-icon"><img src="img/incorrect.png"></p>
+			<p class="show-answer-title">{{ title }}</p>
+			<p class="show-answer-answer"><strong>Your Answer:</strong> {{ response }}</p>
+			<p class="show-answer-answer"><strong>Correct Answer:</strong> {{ answer }}</p>
+		</div>
+		{{else}}
+		<div class="show-answer correct-answer">
+			<p class="show-answer-label">{{ index }}</p>
+			<p class="show-answer-icon"><img src="img/correct.png"></p>
+			<p class="show-answer-title">{{ title }}</p>
+			<p class="show-answer-answer"><strong>Your Answer:</strong> {{ answer }}</p>
+		</div>
+		{{/if}}
+	{{/each}}
+</div>

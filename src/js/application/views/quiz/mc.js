@@ -38,14 +38,29 @@ define([
                     results = this.model.get('results'),
                     responses = this.responses,
                     totalQuestions = this.model.get('totalQuestions'),
+                    showAnswer = this.model.get('settings').showAnswers,
+                    showAnswers = [],
                     score = 0;
 
                 for(var j = 0; j < totalQuestions; j++){
                     var responseIndex = responses.at(j).get('val');
                     var answerIndex = answerKey[j].index;
-                    if(responseIndex == answerIndex)
+                    if (responseIndex == answerIndex)
                         score++;
+                    //Compile answer key to show on results
+                    if (showAnswer) {
+                        showAnswers[j] = {
+                            index: j+1,
+                            title: this.model.get('questions')[j].title,
+                            answer: this.model.get('questions')[j].options[responseIndex].text
+                        }
+                        if (responseIndex == answerIndex)
+                            showAnswers[j].response = this.model.get('questions')[j].options[responseIndex].text;
+                    }
                 }
+
+                if (showAnswer)
+                    this.model.set('showAnswers', showAnswers);
 
                 //Store the proper result outcome
                 var numResults = results.length,

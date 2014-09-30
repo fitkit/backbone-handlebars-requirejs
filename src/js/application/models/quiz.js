@@ -1,8 +1,9 @@
 define([
     'jquery',
     'backbone',
+    'crossdomain',
     './base'],
-    function ($, Backbone, BaseModel) {
+    function ($, Backbone, Crossdomain, BaseModel) {
         "use strict";
         var QuizModel = BaseModel.extend({
             url: function () {

@@ -3,6 +3,7 @@ require.config({
         jquery : '../vendor/jquery/jquery-1.11.0',
         underscore : '../vendor/underscore/underscore',
         backbone : '../vendor/backbone/backbone',
+        crossdomain : '../vendor/backbone/crossdomain',
         handlebars : '../vendor/handlebars/handlebars',
         bootstrap : '../vendor/bootstrap/bootstrap',
         text : '../vendor/require/text',

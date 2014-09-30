@@ -675,6 +675,7 @@ input[type=radio]{
 .logo-container img{
 	margin-top: 4px;
 	float: right;
+	border: none;
 }
 
 /*** SOCIAL SHARES STYLE ***/
