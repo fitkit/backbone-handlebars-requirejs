@@ -54,7 +54,7 @@ define([
                             title: this.model.get('questions')[j].title,
                             answer: this.model.get('questions')[j].options[responseIndex].text
                         }
-                        if (responseIndex == answerIndex)
+                        if (responseIndex != answerIndex)
                             showAnswers[j].response = this.model.get('questions')[j].options[responseIndex].text;
                     }
                 }
