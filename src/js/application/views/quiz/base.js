@@ -135,8 +135,16 @@ define([
                 }
             },
             handleResponse: function (event) {
+                //If lock is held, stop event
+                if(this.responseLock){
+                    return false;
+                }
+                this.responseLock = true;
                 this.saveResponse(event);
-                this.advance();
+                this.advance(event);
+                //Release lock after question renders
+                var view = this;
+                setTimeout(function(){view.responseLock = false;}, 800);
             },
             advance: function (event) {
                 if (event) {

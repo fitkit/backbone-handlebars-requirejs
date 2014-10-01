@@ -52,7 +52,7 @@ define([
                         showAnswers[j] = {
                             index: j+1,
                             title: this.model.get('questions')[j].title,
-                            answer: this.model.get('questions')[j].options[responseIndex].text
+                            answer: this.model.get('questions')[j].options[answerIndex].text
                         }
                         if (responseIndex != answerIndex)
                             showAnswers[j].response = this.model.get('questions')[j].options[responseIndex].text;

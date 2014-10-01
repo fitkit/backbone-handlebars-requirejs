@@ -555,19 +555,11 @@ input[type=radio]{
 	margin: 0;
 }
 .results-text a{
-	color: #3c3c3c;
-	text-decoration: none;
-	-webkit-transition-duration: 0.2s;
-	-moz-transition-duration: 0.2s;
-	-o-transition-duration: 0.2s;
-	transition-duration: 0.2s;
-	-webkit-transition-timing-function: ease;
-	-moz-transition-timing-function: ease;
-	-o-transition-timing-function: ease;
-	transition-timing-function: ease;
+	color: inherit;
+	text-decoration: underline;
 }
 .results-text a:hover{
-	color: #666666;
+	color: inherit;
 	text-decoration: underline;
 }
 .results-text img{
