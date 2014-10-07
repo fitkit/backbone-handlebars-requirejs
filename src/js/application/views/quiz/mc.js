@@ -70,14 +70,18 @@ define([
                     amt = 0,
                     resultIndex = 0;
 
-                for(var i = 0; i < totalQuestions; i++){
-                    amt += minAmt;
-                    if(i < remainder){
-                        amt++;
-                    }
-                    if(score < amt){
-                        resultIndex = i;
-                        break;
+                if(numResults == (totalQuestions + 1)){
+                    resultIndex = score;
+                }else{
+                    for(var i = 0; i < totalQuestions; i++){
+                        amt += minAmt;
+                        if(i < remainder){
+                            amt++;
+                        }
+                        if(score < amt){
+                            resultIndex = i;
+                            break;
+                        }
                     }
                 }
 

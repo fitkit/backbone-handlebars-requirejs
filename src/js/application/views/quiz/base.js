@@ -52,7 +52,7 @@ define([
                 $(this.parentDiv).html(this.el);
                 this.renderCover();
                 document.title = this.model.get('title');
-                if(this.model.get('custom').fontType)
+                if(this.model.get('custom').fontType || this.model.get('custom').customFontType)
                     this.setFontType();
             },
             renderCover: function () {
@@ -171,7 +171,10 @@ define([
                 stats.save();
             },
             setFontType: function () {
-                $('#content').append('<style>@font-face{font-family:fontType;src:url(font/'+this.model.get('custom').fontType+');}body,html{font-family:fontType;}</style>')
+                if(this.model.get('custom').fontType)
+                    $('body').css('font-family',this.model.get('custom').fontType);
+                else if(this.model.get('custom').customFontType)
+                    $('#content').append('<style>@font-face{font-family:fontType;src:url(font/'+this.model.get('custom').customFontType+');}body,html{font-family:fontType;}</style>');
             }
         });
         return BaseQuizView;
