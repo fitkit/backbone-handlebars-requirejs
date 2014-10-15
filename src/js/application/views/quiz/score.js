@@ -30,6 +30,7 @@ define([
                 this.result = results[resultIndex];
                 this.result.showScore = true;
                 this.result.score = score;
+                this.result.shareHeading = this.model.get('sharing').heading;
 
             }
         });

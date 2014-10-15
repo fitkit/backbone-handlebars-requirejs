@@ -688,28 +688,28 @@ input[type=radio]{
 }
 .social-share-btns a{
 	display: inline-block;
-	height: 34px;
+	height: 40px;
 	cursor: pointer;
 }
 .fb, .twitter{
-	width: 150px;
-	height: 34px;
+	width: 135px;
+	height: 40px;
 	display: inline-block;
     text-indent: -9999px;
 	background-image: url('../img/social-btns.png');
-	background-size: 300px;
+	background-size: 270px;
 }
 .fb{
 	background-position: 0px 0px;
 }
 .fb:hover{
-	background-position: -150px 0px;
+	background-position: -135px 0px;
 }
 .twitter{
-	background-position: 0px -36px;
+	background-position: 0px -40px;
 }
 .twitter:hover{
-	background-position: -150px -36px;
+	background-position: -135px -40px;
 }
 
 @media (min-width: 700px) and (max-width: 950px){

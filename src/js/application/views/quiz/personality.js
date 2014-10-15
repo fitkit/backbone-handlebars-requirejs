@@ -25,6 +25,7 @@ define([
                 //Store the proper result outcome
                 var resultIndex = outcomes.indexOf(Math.max.apply(Math,outcomes));
                 this.result = results[resultIndex];
+                this.result.shareHeading = this.model.get('sharing').heading;
 
             }
         });

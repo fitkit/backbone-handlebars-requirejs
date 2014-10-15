@@ -12,6 +12,12 @@ define([
                 });
             },
             handleResponse: function (event) {
+                //If lock is held, stop event
+                if($(event.currentTarget).hasClass('disabled')){
+                    return false;
+                }else{
+                    $(event.currentTarget).addClass('disabled');
+                }
                 this.saveResponse(event);
                 if (this.model.get('settings').revealAnswer) {
                     this.revealAnswer();
@@ -89,6 +95,7 @@ define([
                 this.result.showMcScore = true;
                 this.result.score = score;
                 this.result.total = totalQuestions;
+                this.result.shareHeading = this.model.get('sharing').heading;
 
             }
         });

@@ -136,15 +136,13 @@ define([
             },
             handleResponse: function (event) {
                 //If lock is held, stop event
-                if(this.responseLock){
+                if($(event.currentTarget).hasClass('disabled')){
                     return false;
+                }else{
+                    $(event.currentTarget).addClass('disabled');
                 }
-                this.responseLock = true;
                 this.saveResponse(event);
                 this.advance(event);
-                //Release lock after question renders
-                var view = this;
-                setTimeout(function(){view.responseLock = false;}, 800);
             },
             advance: function (event) {
                 if (event) {
