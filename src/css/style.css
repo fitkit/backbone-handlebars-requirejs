@@ -185,7 +185,7 @@ html,body{
 	background-size: cover;
 	background-position: center center;
 	border-radius: 5px;
-	margin: 0 0 8px 0;
+	margin: -15px 0 25px 0;
 }
 .question-answer{
 	color: #3c3c3c;
@@ -741,11 +741,11 @@ input[type=radio]{
 	.question-title{
 		font-size: 32px;
 		margin: 0px 0 15px 0;
-		padding-top: 15px;
 	}
 	.question-image{
 		width: 100%;
 		padding-bottom: 44.4%;
+		margin: -10px 0 15px 0;
 	}
 	.question-answer{
 		font-size: 20px;
@@ -814,6 +814,7 @@ input[type=radio]{
 	.question-image{
 		width: 100%;
 		padding-bottom: 44.4%;
+		margin: -5px 0 15px 0;
 	}
 	.question-img-answer{
 		font-size: 16px;
@@ -923,6 +924,7 @@ input[type=radio]{
 	.question-image{
 		width: 100%;
 		padding-bottom: 44.4%;
+		margin: -5px 0 10px 0;
 	}
 	.one-third{
 		width: 50%;

@@ -1,9 +1,6 @@
-{{#if img}}
-<div class="question-image" style="background-image:url({{ img }});">
-    <h1 class="question-title" style="background-color:rgba({{ bgColorRGB }})">{{ title }}</h1>
-</div>
-{{else}}
 <h1 class="question-title">{{ title }}</h1>
+{{#if img}}
+<div class="question-image" style="background-image:url({{ img }});"></div>
 {{/if}}
 {{#each options}}
     <div class="question-text-answer-container question-answer-container">
@@ -17,4 +14,4 @@
         <h2 class="question-answer">{{ text }}</h2>
     </div>
 {{/each}}
-		<div id="answer-reveal"></div>
+<div id="answer-reveal"></div>
