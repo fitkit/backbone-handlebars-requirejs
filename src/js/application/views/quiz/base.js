@@ -169,10 +169,14 @@ define([
                 stats.save();
             },
             setFontType: function () {
-                if(this.model.get('custom').fontType)
-                    $('body').css('font-family',this.model.get('custom').fontType);
-                else if(this.model.get('custom').customFontType)
+                if(this.model.get('custom').fontType){
+                    if(this.model.get('custom').fontType.origin == 'google'){
+                        $('body').prepend("<link href='https://fonts.googleapis.com/css?family="+this.model.get('custom').fontType.name+":"+this.model.get('custom').fontType.weights+"' rel='stylesheet' type='text/css'>");
+                    }
+                    $('body').css('font-family',this.model.get('custom').fontType.name+',sans-serif');
+                }else if(this.model.get('custom').customFontType){
                     $('#content').append('<style>@font-face{font-family:fontType;src:url(font/'+this.model.get('custom').customFontType+');}body,html{font-family:fontType;}</style>');
+                }
             }
         });
         return BaseQuizView;
