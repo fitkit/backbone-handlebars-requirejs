@@ -1,16 +1,16 @@
 <div class="email-container">
 	<div class="email-modal">
 		<div class="email-content">
-			{{#if logo}}
-	            <div class="email-logo"><img src="{{ logo }}" height="55"></div>
+			{{#if custom.logo}}
+	            <div class="email-logo"><img src="{{ custom.logo }}" height="55"></div>
 			{{/if}}
-			{{#if mailHeading}}
-			    <h1 class="email-title">{{ mailHeading }}</h1>
+			{{#if custom.mailHeading}}
+			    <h1 class="email-title">{{ custom.mailHeading }}</h1>
 			{{else}}
 			    <h1 class="email-title">Enter your email to see your results!</h1>
 			{{/if}}
-			{{#if mailSubheading}}
-			    <h2 class="email-subtitle">{{ mailSubheading }}</h2>
+			{{#if custom.mailSubheading}}
+			    <h2 class="email-subtitle">{{ custom.mailSubheading }}</h2>
 			{{else}}
 			    <h2 class="email-subtitle">We will send you fun and infrequent updates.</h2>
 			{{/if}}
@@ -19,7 +19,9 @@
 			    <input type="text" id="email" value="" class="form-control" placeholder="Enter email here...">
 				<div id="submit-buttons">
 					<p class="submit-email-container"><input type="submit" class="submit-email" value="See My Results"></p>
+					{{#if optout}}
 					<p class="skip-link"><a role="button" class="skip">Skip this step</a></p>
+					{{/if}}
 				</div>
 			</form>
 		</div>
