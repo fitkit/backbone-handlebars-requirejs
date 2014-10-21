@@ -52,7 +52,7 @@ define([
                         picture: this.result.img,
                         name: 'I got ' + this.result.title + ' - ' + this.quiz.get('title'),
                         description: this.result.description.replace(/(<([^>]+)>)/ig,""),
-                        redirect_uri: 'https://www.tryinteract.com/share.php'
+                        redirect_uri: 'https://www.tryinteract.com/share.php?i=fb&id='+this.quiz.get('id')
                     }),
                     url = 'https://www.facebook.com/dialog/feed?' + params;
                 return url;
@@ -61,7 +61,7 @@ define([
                 var params = {
                         url: this.quiz.get('sharing').url,
                         text: 'I got ' + this.result.title + ' - ' + this.quiz.get('title'),
-                        redirect_uri: 'https://www.tryinteract.com/share.php'
+                        redirect_uri: 'https://www.tryinteract.com/share.php?i=twitter&id='+this.quiz.get('id')
                     },
                     url;
                 if (this.quiz.get('sharing').twitterVia) {
